@@ -1,0 +1,12 @@
+th,thead,tbody,tr,td {
+    border: 2px solid seagreen;
+}
+
+td {
+    height: 25px;
+    width: 175px;
+}
+
+td.no-border, tr.no-border {
+    border: none;
+}

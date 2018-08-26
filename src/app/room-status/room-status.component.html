@@ -1,0 +1,39 @@
+<div class="table-wrapper">
+  <div class="center-wrapper">
+    <h3 class="first">Rooms</h3>
+    <table align="center">
+      <tr>
+        <th>Room Number</th>
+        <th colspan="2">Tenant1</th>
+        <th colspan="2">Tenant2</th>
+        <th colspan="2">Tenant3</th>
+        <th colspan="2">Tenant4</th>
+        <th>Room Empty?</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="no-bottom-border">Name</td>
+        <td class="no-bottom-border">Number</td>
+        <td class="no-bottom-border">Name</td>
+        <td class="no-bottom-border">Number</td>
+        <td class="no-bottom-border">Name</td>
+        <td class="no-bottom-border">Number</td>
+        <td class="no-bottom-border">Name</td>
+        <td class="no-bottom-border">Number</td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let room of rooms" (click)="selectedRoomDetails(room)">
+        <td class="no-right-border">{{room.roomNum}}</td>
+        <td class="tenant-field">{{room.tenant1.name}}</td>
+        <td class="tenant-field">{{room.tenant1.number}}</td>
+        <td class="tenant-field">{{room.tenant2.name}}</td>
+        <td class="tenant-field">{{room.tenant2.number}}</td>
+        <td class="tenant-field">{{room.tenant3.name}}</td>
+        <td class="tenant-field">{{room.tenant3.number}}</td>
+        <td class="tenant-field">{{room.tenant4.name}}</td>
+        <td class="tenant-field">{{room.tenant4.number}}</td>
+        <td class="no-left-border">{{room.empty}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

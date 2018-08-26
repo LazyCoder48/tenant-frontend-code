@@ -1,0 +1,254 @@
+<div>
+  <table align="center">
+    <tr>
+      <th>
+        <button (click)="getDetailsNewTenant()">New Check-In</button>
+      </th>
+      <th>
+        <button (click)="getDetailsAddTenant()">Add Tenant</button>
+      </th>
+    </tr>
+  </table>
+  <table align="center" *ngIf="newTenant">
+    <tr>
+      <th>Room Number</th>
+      <th>
+        <select #roomNumSelected [(ngModel)]="roomNum" (change)="roomNoSelected(roomNumSelected.value)">
+          <option *ngFor="let roomNo of emptyRoomsList" [value]="roomNo">{{roomNo}}</option>
+        </select>
+      </th>
+    </tr>
+    <tr *ngIf="roomNum">
+      <th>Number of Tenants for Room {{roomNum}}</th>
+      <th>
+        <input type="radio" value="1" [(ngModel)]="totalTenants">1&nbsp;
+        <input type="radio" value="2" [(ngModel)]="totalTenants">2&nbsp;
+        <input type="radio" value="3" [(ngModel)]="totalTenants">3&nbsp;
+        <input type="radio" value="4" [(ngModel)]="totalTenants">4&nbsp;
+      </th>
+    </tr>
+    <!-- Tenant 1 -->
+    <tr *ngIf="totalTenants>=1">
+      <th colspan="2">Tenant 1</th>
+    </tr>
+    <tr *ngIf="totalTenants>=1">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant1.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant1.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 2 -->
+    <tr *ngIf="totalTenants>=2">
+      <th colspan="2">Tenant 2</th>
+    </tr>
+    <tr *ngIf="totalTenants>=2">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant2.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant2.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 3 -->
+    <tr *ngIf="totalTenants>=3">
+      <th colspan="2">Tenant 3</th>
+    </tr>
+    <tr *ngIf="totalTenants>=3">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant3.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant3.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 4 -->
+    <tr *ngIf="totalTenants==4">
+      <th colspan="2">Tenant 4</th>
+    </tr>
+    <tr *ngIf="totalTenants==4">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant4.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant4.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <tr *ngIf="totalTenants>=1">
+      <td colspan="2">
+        <input type="button" value="Submit" (click)="newTenantSubmit()">
+      </td>
+    </tr>
+  </table>
+
+  <!-- Add Tenant -->
+  <table align="center" *ngIf="addTenant">
+    <tr>
+      <th>Room Number</th>
+      <th>
+        <select #roomNumSelected [(ngModel)]="roomNum" (change)="roomNoSelected(roomNumSelected.value, 'AddTenant')">
+          <option *ngFor="let roomNo of partiallyFilledRoomsList" [value]="roomNo">{{roomNo}}</option>
+        </select>
+      </th>
+    </tr>
+    <tr *ngIf="roomNum">
+      <th>Number of Tenants for Room {{roomNum}}</th>
+      <th>
+        <input type="radio" value="1" [(ngModel)]="totalTenants">1&nbsp;
+        <input type="radio" value="2" [(ngModel)]="totalTenants">2&nbsp;
+        <input type="radio" value="3" [(ngModel)]="totalTenants">3&nbsp;
+        <input type="radio" value="4" [(ngModel)]="totalTenants">4&nbsp;
+      </th>
+    </tr>
+    <!-- Tenant 1 -->
+    <tr *ngIf="totalTenants>=1">
+      <th colspan="2">Tenant 1</th>
+    </tr>
+    <tr *ngIf="totalTenants>=1">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant1.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant1.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 2 -->
+    <tr *ngIf="totalTenants>=2">
+      <th colspan="2">Tenant 2</th>
+    </tr>
+    <tr *ngIf="totalTenants>=2">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant2.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant2.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 3 -->
+    <tr *ngIf="totalTenants>=3">
+      <th colspan="2">Tenant 3</th>
+    </tr>
+    <tr *ngIf="totalTenants>=3">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant3.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant3.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <!-- Tenant 4 -->
+    <tr *ngIf="totalTenants==4">
+      <th colspan="2">Tenant 4</th>
+    </tr>
+    <tr *ngIf="totalTenants==4">
+      <td>
+        <tr>
+          <th>Name</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant4.name">
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <th>Number</th>
+          <td>&nbsp;:&nbsp;</td>
+          <td>
+            <input type="text" [(ngModel)]="newTenants.tenant4.number">
+          </td>
+        </tr>
+      </td>
+    </tr>
+    <tr *ngIf="totalTenants>=1">
+      <td colspan="2">
+        <input type="button" value="Submit" (click)="send()">
+      </td>
+    </tr>
+  </table>
+</div>

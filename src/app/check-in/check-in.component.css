@@ -1,0 +1,11 @@
+th {
+    border: 2px solid yellow !important;
+}
+
+tr {
+    border: 1px solid red !important;
+}
+
+td{
+    border: 1px solid mediumseagreen !important;
+}

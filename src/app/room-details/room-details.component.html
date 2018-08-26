@@ -1,0 +1,52 @@
+<div class="container table-wrapper">
+  <div class="center-wrapper">
+    <h2>{{selectedRoom.roomNum}}</h2>
+    <table align="center">
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+      </tr>
+      <tr *ngIf="selectedRoom.tenant1">
+        <td>{{selectedRoom.tenant1.name}}</td>
+        <td>{{selectedRoom.tenant1.number}}</td>
+      </tr>
+      <tr *ngIf="selectedRoom.tenant2.name">
+        <td>{{selectedRoom.tenant2.name}}</td>
+        <td>{{selectedRoom.tenant2.number}}</td>
+      </tr>
+      <tr *ngIf="selectedRoom.tenant3.name">
+        <td>{{selectedRoom.tenant3.name}}</td>
+        <td>{{selectedRoom.tenant3.number}}</td>
+      </tr>
+      <tr *ngIf="selectedRoom.tenant4.name">
+        <td>{{selectedRoom.tenant4.name}}</td>
+        <td>{{selectedRoom.tenant4.number}}</td>
+      </tr>
+      <tr>
+        <td colspan="2" *ngIf="!detailsToggle">
+          <button (click)="viewAdditionalDetails(selectedRoom.roomNum);detailsToggle = !detailsToggle;">
+            View Additional Details
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="detailsToggle" class="no-border">
+        <td colspan="2" class="no-border"></td>
+      </tr>
+      <tr *ngIf="detailsToggle">
+        <td>Rent Amount</td>
+        <td>{{selectedRoom.rentAmount}}</td>
+      </tr>
+      <tr *ngIf="detailsToggle">
+        <td>Electricity Bill</td>
+        <td>{{selectedRoom.electricityBill}}</td>
+      </tr>
+
+      <td colspan="2" *ngIf="detailsToggle">
+        <button (click)="detailsToggle = !detailsToggle;">
+          Hide Additional Details
+        </button>
+      </td>
+    </table>
+  {{selectedRoom|json}}
+  </div>
+</div>

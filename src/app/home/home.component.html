@@ -1,0 +1,26 @@
+<!-- <p-toast [style]="{marginTop: '80px'}"></p-toast> -->
+<div class="center">
+  <!-- <h3 class="first">Home</h3> -->
+  <p-tabView>
+    <p-tabPanel header="Room Status" leftIcon="pi pi-home" [selected]="true">
+      <p-card title="Room Status" routerLink="/room-status">
+        This Tab displays Room Status.
+      </p-card>
+    </p-tabPanel>
+    <p-tabPanel header="Check In" leftIcon="pi pi-user-plus">
+      <p-card title="Check In" routerLink="/check-in">
+        This Tab provides option to add New Tenants or Update Tenants in present records.
+      </p-card>
+    </p-tabPanel>
+    <p-tabPanel header="Check Out" leftIcon="pi pi-user-minus">
+      <p-card title="Check Out" routerLink="/check-out">
+        This Tab provides option to remove the Tenants Data.
+      </p-card>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+<p>
+
+  {{icons | json}}
+
+</p>

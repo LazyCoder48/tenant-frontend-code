@@ -1,0 +1,45 @@
+th,thead,tbody,tr,td {
+    border: 2px solid seagreen;
+}
+
+td {
+    width: 175px;
+}
+
+td.tenant-field {
+    border: 2px solid maroon !important;
+}
+
+.no-left-border {
+    border-left: none;
+}
+
+.no-right-border {
+    border-right: none;
+}
+
+.no-bottom-border {
+    border-bottom: none;
+}
+
+.no-top-border {
+    border-top: none;
+}
+
+/* 
+.table-wrapper {
+    position: relative;
+}
+
+.table-wrapper .center-wrapper {
+    position: absolute;
+    left: 25%;
+}
+
+.parent .center-wrapper .center-content {
+    position: relative;
+    left: -25%;
+}
+tr.row-data :hover {
+    background-color: rosybrown;
+} */
